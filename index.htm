@@ -1,184 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Barnali Das</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-* {
-  box-sizing: border-box;
-}
-.fa {
-  padding: 7px;
-  font-size: 20px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barnali Das | Astrophysics</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* CSS Variables & Global Styles */
+        :root {
+            --bg-color: #080b10;
+            --card-bg: rgba(21, 26, 35, 0.85);
+            --card-hover: rgba(30, 38, 50, 0.95);
+            --accent-color: #58a6ff;
+            --text-color: #f0f6fc;
+            --text-secondary: #8b949e;
+            --border-color: rgba(48, 54, 61, 0.8);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-.fa:hover {
-    opacity: 0.7;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(8, 11, 16, 0.8), rgba(8, 11, 16, 0.88)),
+                url('Headerbg.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
 
-/* Style the body */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
 
-/* Header/logo Title */
-.header {
-  padding: 10px;
-  text-align: Left;
-  background-image: url(Headerbg.jpg);
-  color: white;
-}
+        a:hover {
+            text-decoration: underline;
+        }
 
-/* Increase the font size of the heading */
-.header h1 {
-  font-size: 30px;
-}
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-}
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(8, 11, 16, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
 
-/* Style the navigation bar links */
-.navbar a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
 
-/* Right-aligned link */
-.navbar a.right {
-  float: right;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-/* Active/current link */
-.navbar a.active {
-  background-color: #666;
-  color: white;
-}
+        .nav-links a:hover {
+            color: var(--text-color);
+            text-decoration: none;
+        }
 
-/* Column container */
-.row {  
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-}
+        /* Profile Header Section */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  -ms-flex: 30%; /* IE10 */
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 55px;
-}
+        .profile-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-/* Main column */
-.main {   
-  -ms-flex: 70%; /* IE10 */
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+            flex-shrink: 0;
+        }
 
-img {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-  border-radius: 50%;
-}
+        .profile-info {
+            flex-grow: 1;
+        }
 
-/* Footer */
-.footer {
-  padding: 1px;
-  text-align: left;
-  background: #333;
-  color: white;
-  font-size: 15px;
-}
+        .profile-title {
+            font-size: 2.3rem;
+            margin-bottom: 5px;
+        }
 
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
-  .row {   
-    flex-direction: column;
-  }
-}
+        .profile-subtitle {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
-}
-</style>
+        /* Small Oval Keyword Tags */
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            background-color: rgba(88, 166, 255, 0.12);
+            color: var(--accent-color);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            border-radius: 50px;
+            padding: 4px 14px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: inline-block;
+            letter-spacing: 0.2px;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .tag:hover {
+            background-color: rgba(88, 166, 255, 0.25);
+            border-color: var(--accent-color);
+        }
+
+        .header-links {
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            font-size: 0.95rem;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .fa {
+            padding: 8px;
+            font-size: 16px;
+            width: 34px;
+            height: 34px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fa:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .fa-facebook { background: #3B5998; color: white; }
+        .fa-linkedin { background: #007bb5; color: white; }
+
+        /* Sections & Cards */
+        section {
+            padding: 50px 0 30px;
+            border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            color: var(--text-color);
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
+
+        .card h3:first-child { margin-top: 0; }
+        .card p { color: var(--text-secondary); margin-bottom: 12px; }
+        .card p:last-child { margin-bottom: 0; }
+        .card ul { padding-left: 20px; color: var(--text-secondary); }
+        .card li { margin-bottom: 10px; }
+
+        /* Current Research Card Styling */
+        .current-research-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .current-research-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .current-research-icon {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        .current-research-header h3 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .current-research-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        /* Research Gallery Grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .research-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+            backdrop-filter: blur(8px);
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            background-color: var(--card-hover);
+        }
+
+        .research-card.active {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.25);
+        }
+
+        .research-icon {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .research-card h4 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 6px;
+        }
+
+        .past-research-header {
+            margin-top: 35px;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .cv-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Research Expandable Detail Box */
+        .research-detail-box {
+            display: none;
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 15px;
+            animation: fadeIn 0.3s ease-in-out;
+            backdrop-filter: blur(8px);
+        }
+
+        .research-detail-box.active {
+            display: block;
+        }
+
+        .research-detail-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .research-detail-box p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* Side-by-Side Flex Layout Helpers */
+        .side-by-side-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin: 15px 0;
+        }
+
+        .side-by-side-row .text-content {
+            flex: 1;
+        }
+
+        .side-by-side-row .img-container {
+            width: 240px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .side-by-side-row .img-container img {
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: block;
+        }
+
+        /* About Section Custom Layout */
+        .about-layout {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-images-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 220px;
+            flex-shrink: 0;
+        }
+
+        .about-img-frame {
+            width: 100%;
+            text-align: center;
+        }
+
+        .about-img-frame img {
+            width: 100%;
+            height: auto;
+            max-height: 260px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: block;
+        }
+
+        .img-caption {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 650px) {
+            .profile-wrapper { flex-direction: column; text-align: center; }
+            .nav-container { flex-direction: column; gap: 10px; }
+            .keyword-tags { justify-content: center; }
+            
+            .side-by-side-row { flex-direction: column; align-items: flex-start; }
+            .side-by-side-row .img-container { width: 100%; }
+
+            .about-layout { flex-direction: column; }
+            .about-images-col { width: 100%; align-items: center; }
+            .about-img-frame { width: 100%; max-width: 320px; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Barnali Das</h1>
-</div>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <span class="nav-logo">Barnali Das</span>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li><a href="#misc">Misc</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="navbar">
-  <a href="#">Home</a>
-  <a href="About.htm">About</a>
-  <a href="Research.htm">Research</a>
-  <a href="Publications.htm">Publications & Talks</a>
-  <a href="Barnali_Das_curriculum_vitae.pdf">CV</a>
-  <a href="Misc.htm">Misc</a>
-</div>
+    <div class="container">
+        <!-- Profile Header Section -->
+        <header id="home">
+            <div class="profile-wrapper">
+                <img src="IMG.jpg" alt="Barnali Das Profile Photo" class="profile-img">
+                <div class="profile-info">
+                    <h1 class="profile-title">Barnali Das</h1>
+                    <div class="profile-subtitle">PhD Student • Computational Astrophysics and Cosmology (COMPAC) • Scuola Normale Superiore</div>
+                    
+                    <!-- Oval Keyword Tags -->
+                    <div class="keyword-tags">
+                        <span class="tag">Galaxy Formation & Evolution</span>
+                        <span class="tag">Galaxy Simulations</span>
+                        <span class="tag">Cosmology</span>
+                    </div>
+                    
+                    <div class="header-links">
+                        <a href="Barnali_Das_curriculum_vitae.pdf" target="_blank">CV (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<div class="row">
-  <div class="side">
-    <div style="height:400px;"><img src="IMG.jpg">
-    <p style="text-align:center;">First year PhD student</p>
-    <p style="text-align:center;">Scuola Normale Superiore</p>
-</div>
-  </div>
-  <div class="main">
-  	<p>I am a first year PhD student at Scuola Normale Superiore, Pisa, Italy. </p>
-    	<p>My research interest is in “Galaxy Formation and Evolution”, especially its applications to “Cosmology”. Computation plays a major role in visualizing theories, while no theory is complete without observational data supporting it. So, I prefer to work in the intersection of these three. </p>
-  </div>
-</div>
-<div class="footer">
-    <h3>Contact</h3>
-    <p>Personal mail: mimi.barnali.00 [at] gmail.com</p>
-    <p>Institute mail: barnali.das [at] sns.it</p>
-    <a href="https://m.facebook.com/people/Barnali-Das/100062323418723/" class="fa fa-facebook"></a>
-    <a href="https://in.linkedin.com/in/barnali-das-9659ab201" class="fa fa-linkedin"></a>
-</div>
+        <!-- Research Section -->
+        <section id="research">
+            <h2 class="section-title">Research Overview</h2>
+
+            <!-- Galaxy Formation Detail Shown Direct -->
+            <div class="current-research-card">
+                <div class="current-research-header">
+                    <span class="current-research-icon">🌌</span>
+                    <h3>Galaxy Formation and Evolution</h3>
+                </div>
+                <p>
+                    My current research involves simulating isolated high-redshift (z>10) galaxies using high-resolution radiation-hydrodynamics to resolve the puzzles posed by recent JWST observations, particularly the unexpected overabundance of UV-bright, compact "Blue Monsters." While analytical models like the Attenuation-Free Model (AFM) suggest stellar radiation pressure drives dusty outflows to make galaxies bluer and brighter, they rely on simplified 1D geometries. Cosmological simulations also fail to match these observed UV brightness levels, likely missing key pre-supernova radiation feedback. By incorporating radiation-hydrodynamics in a 3D setup, my work tests how radiation pressure redistributes dust within a realistic, turbulent, and clumpy interstellar medium. For more on the topic, view recent publications.
+                </p>
+            </div>
+
+            <!-- Past Research Section -->
+            <div class="past-research-header">Previous Research Experience</div>
+            <p class="cv-note">For more details on other past projects, please check my <a href="Barnali_Das_curriculum_vitae.pdf" target="_blank">CV (PDF)</a>.</p>
+
+            <div class="research-grid">
+                <div class="research-card" onclick="showResearch('cosmology', this)">
+                    <div class="research-icon">⚛</div>
+                    <h4>Inflationary Cosmology</h4>
+                </div>
+                <div class="research-card" onclick="showResearch('pulsars', this)">
+                    <div class="research-icon">📡</div>
+                    <h4>Pulsar Astrophysics</h4>
+                </div>
+            </div>
+
+            <!-- Past Research Interactive Detail Panels -->
+            <div id="detail-cosmology" class="research-detail-box">
+                <h3>Inflationary Cosmology (MS Thesis)</h3>
+                <p>
+                    As part of my MS thesis project at IISER Kolkata, I worked with Dr. Koushik Dutta (Department of Physical Sciences, IISER Kolkata) and Dr. H.V. Ragavendra (Raman Research Institute) in Inflationary Cosmology.
+                </p>
+                <p>
+                    Under this project, I wrote Python codes from scratch to calculate background evolution and the primordial power spectrum for single-field inflation potentials. I also explored non-Gaussianities arising during inflation that evolved into present-day cosmic structures. For my Independent Study with Prof. Rajesh Kumble Nayak (IISER Kolkata), I examined the properties of primordial gravitational waves.
+                </p>
+                <p>
+                    🔗 <a href="https://github.com/mimibarnali00/Cosmology" target="_blank">View my Cosmology Python Codes on GitHub</a>
+                </p>
+            </div>
+
+            <div id="detail-pulsars" class="research-detail-box">
+                <h3>Pulsar Signals & Millisecond Pulsars</h3>
+                
+                <div class="side-by-side-row">
+                    <div class="text-content">
+                        <p>
+                            As a recipient of the "National Initiative on Undergraduate Science" (NIUS) scholarship, I conducted research with Dr. Bhaswati Bhattacharyya at the National Centre for Radio Astrophysics (NCRA) on two fully funded projects:
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Pulsar Detection with PRESTO:</strong> Used the <em>PRESTO</em> suite to search for pulsar signals in raw data collected by the Giant Metrewave Radio Telescope (GMRT).
+                            </li>
+                            <li>
+                                <strong>Millisecond Pulsar Properties:</strong> Determined binary periods, orbit eccentricities, and companion mass relations for 200+ millisecond pulsars from the ATNF Pulsar Catalogue.
+                            </li>
+                        </ul>
+                        <p style="margin-top: 12px;">
+                            📄 <strong>Project Reports:</strong><br>
+                            • <a href="https://drive.google.com/file/d/1iqV2tNfgZTR41CyePd_LxDKs4enNRIRh/view" target="_blank">Study of Pulsars Discovered with GMRT High Resolution Southern Sky Survey - I</a><br>
+                            • <a href="https://drive.google.com/file/d/1AaS8nHGNEoLFGEcQR-TmanR-LNEtE4R2/view" target="_blank">Study of Pulsars Discovered with GMRT High Resolution Southern Sky Survey - II</a>
+                        </p>
+                    </div>
+                    <div class="img-container">
+                        <img src="GMRT.jpg" alt="Giant Metrewave Radio Telescope Dish">
+                        <div class="img-caption">A glimpse of one of the giant parabolic dishes shot during my visit to the GMRT facility.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2 class="section-title">Publications</h2>
+            <div class="card">
+                <p>
+                    For an up-to-date list of publications, preprints, and citation metrics, please visit my author profile on <strong>NASA ADS</strong>:
+                </p>
+                <p style="margin-top: 14px;">
+                    <a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0009-0004-2041-1023&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" style="font-weight: 600; font-size: 1.05rem;">
+                        <i class="fa fa-external-link" style="margin-right: 6px;"></i>View Publications on NASA ADS
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Conference Talks Section -->
+        <section id="talks">
+            <h2 class="section-title">Conference Talks</h2>
+            <div class="card">
+                <ul>
+                    <li>
+                        "Clumps in High-z Galaxies: a simulation perspective" at Zoom-in Views of Galaxy Disks Across Cosmic Time: Bridging Simulations and Observations Workshop [Jun 2026]
+                    </li>
+                    <li>
+                        <a href="https://physics.iitm.ac.in/~sriram/professional/activities/womc.html" target="_blank">"Non-Gaussian Imprints in the Cosmic Microwave Background"</a> at Weekly online meeting on cosmology (WOMC), Indian Institute of Technology Madras [Oct 2023]
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=gjIvDNN52yU&list=PLbV-Vnyt_ZBtIeg3T-coefACs6ez-M-9G&index=16" target="_blank">"Non-Gaussian Imprints in the Cosmic Microwave Background"</a> at Cosmology from Home 2023 conference [Jul 2023]
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Miscellaneous Section -->
+        <section id="misc">
+            <h2 class="section-title">Teaching, Leadership & Outreach</h2>
+
+            <div class="card">
+                <h3>Teaching Experience</h3>
+                <p>Teaching Assistant at IISER Kolkata for:</p>
+                <ul>
+                    <li><strong>General Theory of Relativity and Cosmology</strong> (4th year BS-MS, 60 students)</li>
+                    <li><strong>Waves and Optics</strong> (2nd year BS-MS, 200+ students)</li>
+                    <li><strong>Mathematical Methods of Physics</strong> (3rd year BS-MS, 80 students)</li>
+                </ul>
+
+                <h3>Leadership Experience</h3>
+                <div class="side-by-side-row">
+                    <div class="text-content">
+                        <ul>
+                            <li>Part of the logistics team for the 32nd meeting of the <a href="https://www.iiserkol.ac.in/~iagrg32/" target="_blank">Indian Association for General Relativity and Gravitation (IAGRG)</a>, hosting 325 participants.</li>
+                            <li>Organized the <strong>Utkal Divas 2021</strong> event at IISER Kolkata for a 300+ audience.</li>
+                            <li>Organizing team member for the <strong>Ekpehal Anniversary 2020</strong> event at IISER Kolkata for 350+ spectators.</li>
+                        </ul>
+                    </div>
+                    <div class="img-container">
+                        <img src="IAGRG.jpg" alt="IAGRG Conference Volunteers">
+                        <div class="img-caption">With fellow volunteers at IAGRG</div>
+                    </div>
+                </div>
+
+                <h3>Science Outreach</h3>
+                <ul>
+                    <li>
+                        Founder of <a href="https://vigyanaparichaya.wixsite.com/vigyanaparichaya" target="_blank"><strong>Vigyana Parichaya</strong></a> and its <a href="https://www.youtube.com/@vigyanaparichaya5933" target="_blank">YouTube Channel</a>, bridging the language gap in scientific communication through blogs and videos in Odia and English.
+                    </li>
+                    <li>
+                        Volunteer at <a href="https://www.instagram.com/ekpehal_iiserk/?hl=en" target="_blank"><strong>Ek Pehal</strong></a>, assisting underprivileged children with education and basic amenities.
+                    </li>
+                </ul>
+
+                <h3>International & Professional Associations</h3>
+                <p>
+                    Member of the <a href="https://carinas.co.in/" target="_blank"><strong>Cosmology and Astronomy Researchers of Indian Nationality And Sisters (CARINAS)</strong></a> network empowering early-career women researchers through mentorship and networking.
+                </p>
+                <p style="margin-top: 8px;">
+                    Member of the <a href="https://supernovafoundation.org/" target="_blank"><strong>Supernova Foundation</strong></a>, a mentoring network for women in physics.
+                </p>
+                
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="card">
+                <div class="about-layout">
+                    <div class="about-text">
+                        <p>I am born and brought up in Odisha, India. I completed my BS-MS Dual Degree in Physics from the Department of Physical Sciences at Indian Institute of Science Education and Research (IISER) Kolkata.</p>
+                        <p>Besides academics, I am trained in Odissi (Indian classical dance) and Indian classical music (Hindustani). I love painting, especially portraits. I hobbies keep on evolving constantly and I keep on trying new things every now and then. Making 3D videos is another such hobby. I love travelling new places and get to know their culture.</p>
+                    </div>
+                    <div class="about-images-col">
+                        <div class="about-img-frame">
+                            <img src="Odissi.JPG" alt="Barnali performing Odissi dance">
+                        </div>
+                        <div class="about-img-frame">
+                            <img src="Painting.jpg" alt="Portrait artwork by Barnali">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="card">
+                <p><strong>Personal mail:</strong> mimi.barnali.00 [at] gmail.com</p>
+                <p><strong>Institute mail:</strong> barnali.das [at] sns.it</p>
+                <div class="social-links">
+                    <a href="https://m.facebook.com/people/Barnali-Das/100062323418723/" class="fa fa-facebook" target="_blank" aria-label="Facebook"></a>
+                    <a href="https://in.linkedin.com/in/barnali-das-9659ab201" class="fa fa-linkedin" target="_blank" aria-label="LinkedIn"></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© Barnali Das • Scuola Normale Superiore</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript to toggle past research panels -->
+    <script>
+        function showResearch(topicId, cardElement) {
+            const detailBoxes = document.querySelectorAll('.research-detail-box');
+            detailBoxes.forEach(box => box.classList.remove('active'));
+
+            const cards = document.querySelectorAll('.research-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            const targetBox = document.getElementById('detail-' + topicId);
+            if (targetBox) {
+                targetBox.classList.add('active');
+                cardElement.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
-
